@@ -1,0 +1,227 @@
+@import url('./fonts.css');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'CinaGEO', sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+.main-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Navbar styles */
+.navbar {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar .logo,
+.navbar .links .link,
+.navbar .toggle-icon {
+  transition: opacity .2s ease;
+}
+
+.navbar .logo:hover,
+.navbar .toggle-icon:hover {
+  opacity: .6;
+  cursor: pointer;
+}
+
+.navbar .links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar .links .link:hover {
+  opacity: .6;
+}
+
+/* Hero section */
+
+.hero {
+  border-radius: 12px;
+  background-image: linear-gradient(
+    to right, rgba(0,0,0,0.5),
+    rgba(244,244,244,0.2)
+  ), url('./assets/azores.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+.hero .content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero .upper-container {
+  padding: 10rem 3rem;
+}
+
+.hero .upper-container .title {
+  font-size: clamp(2rem, 6vw, 7rem);
+}
+
+.hero .upper-container .description {
+  font-weight: 300;
+  padding-top: 1rem;
+  font-size: 1.1rem;
+}
+
+.hero .upper-container .book-now-btn {
+  background-color: white;
+  color: black;
+  padding: 0.7rem 3rem;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  border-radius: 18px;
+  margin-top: 2.4rem;
+  transition: background .3s ease;
+  cursor: pointer;
+}
+
+.hero .upper-container .book-now-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.hero .bottom-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 2rem 3rem;
+}
+
+.hero .bottom-container .arrows {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero .bottom-container .arrows .arrow {
+  width: 38px;
+  height: 38px;
+  border: 0.1px solid #d8d8d8;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: background .3s ease;
+}
+
+.hero .bottom-container .arrows .arrow:hover svg {
+  stroke: black;
+}
+
+.hero .bottom-container .arrows .arrow:hover {
+  background-color: white;
+}
+
+.hero .bottom-container .arrows .arrow.right {
+  background-color: white;
+}
+
+.hero .bottom-container .arrows .arrow.right svg {
+  stroke: black;
+}
+
+.hero .bottom-container .arrow-down {
+  padding: 0.5rem 2rem;
+  border-radius: 12px;
+  margin-top: 0.4rem;
+  transition: background .3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.hero .bottom-container .arrow-down svg {
+  transform: rotate(90deg);
+}
+
+.hero .bottom-container .arrow-down:hover {
+  background-color: white;
+}
+
+.hero .bottom-container .arrow-down:hover svg {
+  stroke: black;
+}
+
+.hero .upper-container .title,
+.hero .upper-container .description,
+.hero .upper-container .book-now-btn,
+.hero .bottom-container .arrow-down {
+  animation: fadeInFromBottom 1s ease-out;
+}
+
+.hero .upper-container .book-now-btn,
+.hero .bottom-container .arrow-down {
+  animation: fadeInFromLeft 1s ease-out;
+}
+
+.hero .bottom-container .arrows .arrow {
+  animation: fadeInFromLeft 1s ease-out;
+}
+
+.hero .bottom-container .arrows .arrow.right {
+  animation: fadeInFromLeft 1s ease-out;
+}
+
+/* Animations */
+@keyframes fadeInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar .links {
+    display: none;
+  }
+
+  .hero .upper-container {
+    padding: 10rem 1rem;
+  }
+
+  .hero .bottom-container {
+    padding: 2rem 1rem;
+  }
+}
