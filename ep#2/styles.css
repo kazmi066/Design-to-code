@@ -1,0 +1,164 @@
+:root {
+  --primary-grey: #bbb;
+  --lighter-grey: #f5f5f5;
+  --darker-grey: #959595;
+  --primary-black: #010101;
+  --darker-black: #000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Poppins', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.navbar .logo {
+  font-weight: 500;
+  font-size: 1.5rem;
+  transition: opacity .2s ease;
+}
+
+.navbar .logo:hover {
+  cursor: pointer;
+  opacity: .7;
+}
+
+.navbar .links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .links .link {
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  transition: background .3s ease;
+}
+
+.navbar .links .link:hover {
+  background-color: var(--lighter-grey);
+}
+
+.navbar .register-btn {
+  background-color: var(--lighter-grey);
+  padding: 0.7rem 1.4rem;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background .3s ease-in-out;
+}
+
+.navbar .register-btn:hover {
+  background-color: var(--primary-black);
+  color: #fff;
+}
+
+/* Hero section */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: var(--lighter-grey);
+}
+
+.hero .left-col {
+  padding: 6rem 1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero .title {
+  font-weight: 500;
+  font-size: clamp(2rem, 6vw, 4rem);
+}
+
+.hero .title .primary-grey {
+  color: var(--primary-grey);
+}
+
+.hero .title .dark-grey {
+  color: var(--darker-grey);
+}
+
+.hero .title .dark-black {
+  color: var(--darker-black);
+}
+
+.hero .person-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero .email-input-container {
+  margin-top: 3rem;
+  background-color: white;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero .email-input-container .email-input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border-radius: 30px;
+  border: none;
+  padding: 1rem;
+}
+
+.hero .email-input-container .register-btn {
+  background-color: var(--darker-black);
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+  padding: 1rem 3rem;
+  cursor: pointer;
+  transition: opacity .3s ease-out;
+}
+
+.hero .email-input-container .register-btn:hover {
+  opacity: .8;
+}
+
+.hero .boost-text {
+  font-weight: 400;
+  font-size: 1rem;
+  margin-top: 6rem;
+  line-height: 1.3rem;
+  color: var(--primary-black);
+}
+
+@media screen and (max-width: 992px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero .boost-text {
+    margin-top: 4rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar .links {
+    display: none;
+  }
+}
