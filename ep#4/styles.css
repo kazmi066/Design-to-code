@@ -1,0 +1,224 @@
+/* Automatic/Manual dark/light mode */
+:root, :root.light {
+  --body-bg-mode: #8e7bfc;
+  --text-color-mode: #ffffff;
+  --container-bg-mode: #9b89fe;
+}
+
+/* Manual dark/light mode */
+:root.dark {
+  --body-bg-mode: #000000;
+  --container-bg-mode: #191919;
+}
+
+/* Automatic dark/light mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    --body-bg-mode: #000000;
+    --container-bg-mode: #191919;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--body-bg-mode);
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+.main-container {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.mini-title {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+/* Navbar */
+.navbar {
+  padding: 1rem 0;
+  border-bottom: 2px solid var(--text-color-mode);
+}
+
+.navbar .content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar .logo {
+  color: var(--text-color-mode);
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.secondary-btn {
+  border: 1px solid var(--text-color-mode);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  outline: none;
+  padding: 0.4rem 1.4rem;
+  background-color: transparent;
+  border-radius: 6px;
+  color: var(--text-color-mode);
+  cursor: pointer;
+  transition: all .3s ease-out;
+}
+
+.secondary-btn svg {
+  stroke: var(--text-color-mode);
+  transition: transform .3s ease-out;
+}
+
+.secondary-btn:hover {
+  background-color: var(--container-bg-mode);
+}
+
+.secondary-btn:hover svg {
+  transform: translateX(10px);
+}
+
+/* Hero section */
+.hero {
+  color: var(--text-color-mode);
+}
+
+.hero > .title {
+  font-size: clamp(2rem, 24vw, 21rem);
+}
+
+.hero .info-grid {
+  padding: 3rem 0;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 3rem;
+}
+
+.hero .left-col {
+  grid-column: 1/5;
+}
+
+.hero .right-col {
+  grid-column: 6/13;
+  background-color: var(--container-bg-mode);
+  padding: 1rem 1.4rem;
+  border: 1px solid var(--text-color-mode);
+  border-radius: 10px;
+}
+
+.hero .left-col .description {
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding-top: 2rem;
+  line-height: 1.4;
+}
+
+.hero .right-col .carousel-content {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.hero .right-col .carousel-content .title {
+  font-size: 2rem;
+  font-weight: 600;
+  padding-bottom: 1rem;
+}
+
+.hero .right-col .carousel-content .description {
+  max-width: 400px;
+}
+
+.hero .right-col .carousel-content .selectors {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.hero .right-col .carousel-content .selector-btn {
+  border: 1px solid var(--text-color-mode);
+  color: var(--text-color-mode);
+  text-transform: capitalize;
+  padding: 0.3rem 2rem;
+  font-weight: 300;
+  background-color: transparent;
+  border-radius: 6px;
+  transition: background-color .3s ease-out;
+  cursor: pointer;
+}
+
+.hero .right-col .carousel-content .selector-btn:hover,
+.hero .right-col .carousel-content .arrow:hover {
+  background-color: var(--body-bg-mode);
+}
+
+.hero .right-col .carousel-content .arrow {
+  border-radius: 50%;
+  padding: 0.2rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background-color .3s ease-out;
+  border: 1px solid var(--text-color-mode);
+}
+
+.hero .right-col .carousel-navigators {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.hero .right-col .carousel-navigators .carousel-navigator .navigator-count {
+  font-weight: 600;
+  font-size: clamp(1.2rem, 5vw, 1.8rem);
+  padding-bottom: 0.4rem;
+}
+
+.hero .right-col .carousel-navigators .carousel-navigator .navigator-line {
+  background-color: transparent;
+  border: 1px solid var(--text-color-mode);
+  border-radius: 6px;
+  height: 6px;
+  width: clamp(40px, 10vw, 80px);
+}
+
+.hero .right-col .carousel-navigators .carousel-navigator .navigator-line:hover {
+  background-color: var(--body-bg-mode);
+  cursor: pointer;
+}
+
+.hero .right-col .carousel-navigators :not(.carousel-navigator.active) .navigator-count {
+  display: none;
+}
+
+.hero .right-col .carousel-navigators .carousel-navigator.active .navigator-line {
+  background-color: var(--text-color-mode);
+}
+
+@media screen and  (max-width: 992px) {
+  .hero .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero .info-grid .left-col,
+  .hero .info-grid .right-col {
+    grid-column: 1/-1;
+  }
+}
